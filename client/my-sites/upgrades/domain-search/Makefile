@@ -6,6 +6,6 @@ MOCHA ?= $(NODE_BIN)/mocha
 NODE_PATH := test:$(BASE_DIR)/client:$(BASE_DIR)/shared
 
 test:
-	@NODE_ENV=test NODE_PATH=$(NODE_PATH) $(MOCHA) --compilers jsx:babel/register --reporter $(REPORTER)
+	@NODE_ENV=test NODE_PATH=$(NODE_PATH) $(MOCHA) --compilers jsx:babel-register --reporter $(REPORTER)
 
 .PHONY: test

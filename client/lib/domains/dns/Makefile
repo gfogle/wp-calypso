@@ -1,5 +1,5 @@
 MOCHA ?= ../../../../node_modules/.bin/mocha
-COMPILERS ?= js:babel/register
+COMPILERS ?= js:babel-register
 REPORTER ?= spec
 UI ?= bdd
 

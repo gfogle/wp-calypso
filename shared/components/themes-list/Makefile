@@ -1,6 +1,6 @@
 UI ?= bdd
 REPORTER ?= spec
-COMPILERS ?= jsx:babel/register
+COMPILERS ?= jsx:babel-register
 NODE_BIN := $(shell npm bin)
 MOCHA ?= $(NODE_BIN)/mocha
 BASE_DIR := $(NODE_BIN)/../..
