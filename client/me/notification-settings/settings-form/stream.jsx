@@ -56,7 +56,7 @@ export default React.createClass( {
 
 		return (
 			<div className={ classNames( 'notification-settings-form-stream', this.props.className ) }>
-				{ () => {
+				{ ( () => {
 					if ( this.props.devices ) {
 						return <DeviceSelector
 							devices={ this.props.devices }
@@ -65,7 +65,7 @@ export default React.createClass( {
 					}
 
 					return ( <StreamHeader stream={ this.props.stream } /> );
-				}() }
+				} )() }
 				<StreamOptions
 					blogId={ this.props.blogId }
 					stream={ stream }
