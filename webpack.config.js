@@ -93,7 +93,7 @@ if ( CALYPSO_ENV === 'desktop' || CALYPSO_ENV === 'desktop-mac-app-store' ) {
 jsLoader = {
 	test: /\.jsx?$/,
 	exclude: /node_modules/,
-	loaders: [ 'babel-loader?cacheDirectory&optional[]=runtime' ]
+	loaders: [ 'babel-loader?cacheDirectory' ]
 };
 
 if ( CALYPSO_ENV === 'development' ) {
