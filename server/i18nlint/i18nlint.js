@@ -6,7 +6,9 @@
 var fs = require( 'fs' ),
 	XGettext = require( 'xgettext-js' ),
 	debug = require( 'debug' )( 'calypso:i18nlint' ),
+	assign = require( 'lodash/object/assign' ),
 	babel = require( 'babel-core' ),
+	babelOptions = JSON.parse( fs.readFileSync( __dirname + '/../../.babelrc' ) ),
 	preProcessXGettextJSMatch = require( '../i18n/preprocess-xgettextjs-match.js' ),
 	SourceMapConsumer = require( 'source-map' ).SourceMapConsumer,
 	tokenize = require( '../../client/lib/interpolate-components/tokenize.js' ),
@@ -102,7 +104,7 @@ function processJsx( sourceString ) {
 	sourceMapConsumer = undefined;
 
 	try {
-		transformedJsxSource = babel.transform( sourceString, { sourceMaps: true } );
+		transformedJsxSource = babel.transform( sourceString, assign( {}, babelOptions, { sourceMaps: true } ) );
 		sourceMapConsumer = new SourceMapConsumer( transformedJsxSource.map );
 	} catch ( err ) {
 		debug( 'babel.transform() failed' +
