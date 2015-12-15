@@ -99,6 +99,7 @@ module.exports = React.createClass( {
 					<span className="masterbar-new-post__label">{ this.translate( 'New Post' ) }</span>
 				</a>
 				<SitesPopover
+					sites={ this.props.sites }
 					visible={ this.state.isShowingPopover }
 					context={ this.state.postButtonContext }
 					onClose={ this.toggleSitesPopover.bind( this, false ) }
