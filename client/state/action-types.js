@@ -13,8 +13,8 @@ export const FETCH_SITE_PLANS_COMPLETED = 'FETCH_SITE_PLANS_COMPLETED';
 export const FETCH_PUBLICIZE_CONNECTIONS = 'FETCH_PUBLICIZE_CONNECTIONS';
 export const RECEIVE_PUBLICIZE_CONNECTIONS = 'RECEIVE_PUBLICIZE_CONNECTIONS';
 export const RECEIVE_SITE = 'RECEIVE_SITE';
+export const SET_EXPORT_POST_TYPE = 'SET_EXPORT_POST_TYPE';
 export const SET_SELECTED_SITE = 'SET_SELECTED_SITE';
-export const TOGGLE_EXPORTER_SECTION = 'TOGGLE_EXPORTER_SECTION';
 
 // TODO: Should these be renamed FETCH_ and RECEIVE_ to conform to the above?
 // FETCH and RECEIVE doesn't really match the meaning of the request, since

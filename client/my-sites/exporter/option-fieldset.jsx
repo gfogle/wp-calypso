@@ -6,7 +6,7 @@ import React, { PropTypes } from 'react';
 /**
  * Internal dependencies
  */
-import Checkbox from 'components/forms/form-checkbox';
+import FormRadio from 'components/forms/form-radio';
 import Select from 'components/forms/form-select';
 import Label from 'components/forms/form-label';
 
@@ -25,7 +25,7 @@ module.exports = React.createClass( {
 	mixins: [ PureRenderMixin ],
 
 	propTypes: {
-		onToggleEnabled: PropTypes.func,
+		onSelect: PropTypes.func,
 
 		legend: PropTypes.string.isRequired,
 		isEnabled: PropTypes.bool.isRequired
@@ -42,9 +42,9 @@ module.exports = React.createClass( {
 			<div className="exporter__option-fieldset">
 
 				<Label className="exporter__option-fieldset-legend">
-					<Checkbox
+					<FormRadio
 						checked={ this.props.isEnabled }
-						onChange={ this.props.onToggleEnabled }/>
+						onChange={ this.props.onSelect }/>
 					<span className="exporter__option-fieldset-legend-text">{ this.props.legend }</span>
 				</Label>
 
