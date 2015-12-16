@@ -21,6 +21,7 @@ module.exports = React.createClass( {
 	displayName: 'SiteSelector',
 
 	propTypes: {
+		sites: React.PropTypes.object,
 		showAddNewSite: React.PropTypes.bool,
 		showAllSites: React.PropTypes.bool,
 		indicator: React.PropTypes.bool,
@@ -32,6 +33,7 @@ module.exports = React.createClass( {
 
 	getDefaultProps: function() {
 		return {
+			sites: {},
 			showAddNewSite: false,
 			showAllSites: false,
 			siteBasePath: false,
