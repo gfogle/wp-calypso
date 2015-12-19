@@ -54,6 +54,15 @@ module.exports = React.createClass( {
 		);
 	},
 
+	renderTrialCopy: function() {
+		var selectedSiteDomain = this.props.sites.getSelectedSite().domain;
+
+		if ( ! this.props.siteSpecificPlansDetailsList.hasLoadedFromServer( selectedSiteDomain ) || ! config.isEnabled( 'upgrades/free-trials' ) ) {
+			return null;
+		}
+		return <div className="plans__trial-copy">{ this.translate( 'Try WordPress.com Premium or Business free for 14 days, no credit card required' ) }</div>;
+	},
+
 	render: function() {
 		var classNames = 'main main-column ',
 			selectedSiteDomain = this.props.sites.getSelectedSite().domain,
@@ -84,7 +93,7 @@ module.exports = React.createClass( {
 						path={ this.props.context.path }
 						cart={ this.props.cart }
 						selectedSite={ this.props.sites.getSelectedSite() } />
-
+					{ this.renderTrialCopy() }
 					<PlanList
 						sites={ this.props.sites }
 						plans={ this.props.plans.get() }
