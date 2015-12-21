@@ -19,7 +19,6 @@ var Masterbar = require( './masterbar' ),
 	EmailVerificationNotice = require( 'components/email-verification/email-verification-notice' ),
 	Welcome = require( 'my-sites/welcome/welcome' ),
 	WelcomeMessage = require( 'nux-welcome/welcome-message' ),
-	InviteMessage = require( 'my-sites/invites/invite-message' ),
 	analytics = require( 'analytics' ),
 	config = require( 'config' ),
 	PulsingDot = require( 'components/pulsing-dot' ),
@@ -108,7 +107,6 @@ module.exports = React.createClass( {
 					<Welcome isVisible={ showWelcome } closeAction={ this.closeWelcome } additionalClassName="NuxWelcome">
 						<WelcomeMessage welcomeSite={ newestSite } />
 					</Welcome>
-					<InviteMessage sites={ this.props.sites }/>
 					<EmailVerificationNotice user={ this.props.user } />
 					<NoticesList id="notices" notices={ notices.list } forcePinned={ 'post' === this.state.section } />
 					<TranslatorInvitation isVisible={ showInvitation } />
