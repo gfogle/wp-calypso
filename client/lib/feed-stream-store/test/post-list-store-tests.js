@@ -8,7 +8,8 @@ var expect = require( 'chai' ).expect,
 
 var PostListStore, FeedPostStore, FeedSubscriptionStore;
 
-describe( 'FeedPostList', function() {
+describe( 'FeedStreamStore', function() {
+	this.timeout( 10 * 1000 );
 	before( function() {
 		mockery.enable( {
 			useCleanCache: true,
