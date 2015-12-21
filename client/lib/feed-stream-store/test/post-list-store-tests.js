@@ -9,10 +9,8 @@ var expect = require( 'chai' ).expect,
 var PostListStore, FeedPostStore, FeedSubscriptionStore;
 
 describe( 'FeedStreamStore', function() {
-	this.timeout( 10 * 1000 );
 	before( function() {
 		mockery.enable( {
-			useCleanCache: true,
 			warnOnUnregistered: false
 		} );
 		mockery.registerAllowable( '../feed-stream' );

@@ -10,7 +10,6 @@ var FeedState = require( '../constants' ).state,
 	FeedStore, FeedStoreActions;
 
 describe( 'FeedStore', function() {
-	this.timeout( 10 * 1000 ); // give this 10s for now, circle ci hates us
 	var readFeedStub,
 		mockWpcom = {
 			undocumented: function() {
@@ -21,7 +20,6 @@ describe( 'FeedStore', function() {
 
 	before( function() {
 		mockery.enable( {
-			useCleanCache: true,
 			warnOnUnregistered: false
 		} );
 		mockery.registerAllowable( [ '../', '../actions' ] );

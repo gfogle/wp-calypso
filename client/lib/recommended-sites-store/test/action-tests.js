@@ -14,7 +14,6 @@ var mockSites = null,
 describe( 'Recommended Site Store Actions', function() {
 	before( function() {
 		mockery.enable( {
-			useCleanCache: true,
 			warnOnUnregistered: false
 		} );
 		mockery.registerAllowable( '../actions' );

@@ -20,7 +20,6 @@ describe( 'Notification Settings Store', () => {
 
 	before( () => {
 		mockery.enable( {
-			useCleanCache: true,
 			warnOnUnregistered: false
 		} );
 		mockery.registerAllowable( [ '../', '../actions' ] );
