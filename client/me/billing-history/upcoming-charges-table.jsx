@@ -46,7 +46,7 @@ module.exports = React.createClass( {
 
 	renderEmpty: function() {
 		return (
-			this.translate( 'The upgrades on your account will not renew automatically. To manage your upgrades or enable Auto Renew visit {{link}}My Upgrades{{link}}.', {
+			this.translate( 'The upgrades on your account will not renew automatically. To manage your upgrades or enable Auto Renew visit {{link}}My Upgrades{{/link}}.', {
 				components: {
 					link: <a href="/purchases" />
 				}

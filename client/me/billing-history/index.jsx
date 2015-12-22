@@ -35,7 +35,7 @@ module.exports = React.createClass( {
 	},
 
 	renderUpcomingCharges: function( data ) {
-		if ( ! isEmpty( data.billingHistory ) && ! isEmpty( data.upcomingCharges ) ) {
+		if ( ! isEmpty( data.billingHistory ) ) {
 			return (
 				<div>
 					<SectionHeader label={ this.translate( 'Upcoming Charges' ) } />
