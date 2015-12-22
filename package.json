@@ -111,6 +111,7 @@
     "test": "make test"
   },
   "devDependencies": {
+    "babel-cli": "6.3.17",
     "babel-eslint": "5.0.0-beta6",
     "babel-register": "6.3.13",
     "better-assert": "1.0.2",
