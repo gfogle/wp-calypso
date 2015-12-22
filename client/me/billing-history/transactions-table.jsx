@@ -134,7 +134,7 @@ var TransactionsTable = React.createClass( {
 		} else if ( isEmpty( this.state.transactions ) ) {
 			return (
 				<tr className="transactions__no-results">
-					<td className="no-results-cell" colSpan="3">{ this.translate( 'No matching receipts found' ) }</td>
+					<td className="no-results-cell" colSpan="3">{ this.props.renderEmpty() }</td>
 				</tr>
 			);
 		}

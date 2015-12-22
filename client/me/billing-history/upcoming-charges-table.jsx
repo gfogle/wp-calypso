@@ -25,20 +25,32 @@ module.exports = React.createClass( {
 			<TransactionsTable
 				transactions={ transactions }
 				initialFilter={ { date: { newest: 20 } } }
-				description={ function( transaction ) {
-					var site = this.props.sites.getSite( Number( transaction.blog_id ) );
+				renderEmpty={ this.renderEmpty }
+				description={ this.renderDescription } />
+		);
+	},
 
-					if ( site ) {
-						return (
-							<div className="transaction-links">
-								<a href={ purchasesPaths.managePurchase( site.slug, transaction.id ) }>
-									{ this.translate( 'Manage Purchase' ) }
-								</a>
-							</div>
-						);
-					}
-				}.bind( this ) }
-			/>
+	renderDescription: function( transaction ) {
+		var site = this.props.sites.getSite( Number( transaction.blog_id ) );
+
+		if ( site ) {
+			return (
+				<div className="transaction-links">
+					<a href={ purchasesPaths.managePurchase( site.slug, transaction.id ) }>
+						{ this.translate( 'Manage Purchase' ) }
+					</a>
+				</div>
+			);
+		}
+	},
+
+	renderEmpty: function() {
+		return (
+			this.translate( 'The upgrades on your account will not renew automatically. To manage your upgrades or enable Auto Renew visit {{link}}My Upgrades{{link}}.', {
+				components: {
+					link: <a href="/purchases" />
+				}
+			} )
 		);
 	}
 } );

@@ -2,7 +2,8 @@
  * External dependencies
  */
 var React = require( 'react' ),
-	classes = require( 'component-classes' );
+	classes = require( 'component-classes' ),
+	isEmpty = require( 'lodash/lang/isEmpty' );
 
 /**
  * Internal dependencies
@@ -31,6 +32,19 @@ module.exports = React.createClass( {
 
 	componentWillUnmount: function() {
 		classes( document.body ).remove( 'billing-history-page' );
+	},
+
+	renderUpcomingCharges: function( data ) {
+		if ( ! isEmpty( data.billingHistory ) && ! isEmpty( data.upcomingCharges ) ) {
+			return (
+				<div>
+					<SectionHeader label={ this.translate( 'Upcoming Charges' ) } />
+					<Card id="upcoming-charges">
+						<UpcomingChargesTable sites={ this.props.sites } transactions={ data.upcomingCharges } />
+					</Card>
+				</div>
+			);
+		}
 	},
 
 	renderManageCards: function() {
@@ -69,10 +83,7 @@ module.exports = React.createClass( {
 					<BillingHistoryTable transactions={ data.billingHistory } />
 				</Card>
 
-				<SectionHeader label={ this.translate( 'Upcoming Charges' ) } />
-				<Card id="upcoming-charges">
-					<UpcomingChargesTable sites={ this.props.sites } transactions={ data.upcomingCharges } />
-				</Card>
+				{ this.renderUpcomingCharges( data ) }
 
 				{ this.renderManageCards() }
 
