@@ -34,29 +34,9 @@ module.exports = React.createClass( {
 		classes( document.body ).remove( 'billing-history-page' );
 	},
 
-	renderUpcomingCharges: function( data ) {
-		if ( ! isEmpty( data.billingHistory ) ) {
-			return (
-				<div>
-					<SectionHeader label={ this.translate( 'Upcoming Charges' ) } />
-					<Card id="upcoming-charges">
-						<UpcomingChargesTable sites={ this.props.sites } transactions={ data.upcomingCharges } />
-					</Card>
-				</div>
-			);
-		}
-	},
-
-	renderManageCards: function() {
-		if ( config.isEnabled( 'me/credit-cards' ) ) {
-			return (
-				<CreditCards cards={ storedCards } />
-			);
-		}
-	},
-
 	render: function() {
 		var data = this.props.billingData.get();
+		const hasBillingHistory = ! isEmpty( data.billingHistory );
 
 		return (
 
@@ -83,9 +63,16 @@ module.exports = React.createClass( {
 					<BillingHistoryTable transactions={ data.billingHistory } />
 				</Card>
 
-				{ this.renderUpcomingCharges( data ) }
+				{ hasBillingHistory &&
+					<div>
+						<SectionHeader label={ this.translate( 'Upcoming Charges' ) } />
+						<Card id="upcoming-charges">
+							<UpcomingChargesTable sites={ this.props.sites } transactions={ data.upcomingCharges } />
+						</Card>
+					</div> }
 
-				{ this.renderManageCards() }
+				{ config.isEnabled( 'me/credit-cards' ) &&
+					<CreditCards cards={ storedCards } /> }
 
 			</div>
 		);

@@ -15,6 +15,11 @@ module.exports = React.createClass( {
 
 	render: function() {
 		var transactions = null;
+		const emptyTableText = this.translate( 'The upgrades on your account will not renew automatically. To manage your upgrades or enable Auto Renew visit {{link}}My Upgrades{{/link}}.', {
+			components: {
+				link: <a href="/purchases" />
+			}
+		} );
 
 		if ( this.props.sites.initialized ) {
 			// `TransactionsTable` will render a loading state until the transactions are present
@@ -25,12 +30,12 @@ module.exports = React.createClass( {
 			<TransactionsTable
 				transactions={ transactions }
 				initialFilter={ { date: { newest: 20 } } }
-				renderEmpty={ this.renderEmpty }
-				description={ this.renderDescription } />
+				emptyTableText={ emptyTableText }
+				transactionRenderer={ this.renderTransaction } />
 		);
 	},
 
-	renderDescription: function( transaction ) {
+	renderTransaction: function( transaction ) {
 		var site = this.props.sites.getSite( Number( transaction.blog_id ) );
 
 		if ( site ) {
@@ -42,15 +47,5 @@ module.exports = React.createClass( {
 				</div>
 			);
 		}
-	},
-
-	renderEmpty: function() {
-		return (
-			this.translate( 'The upgrades on your account will not renew automatically. To manage your upgrades or enable Auto Renew visit {{link}}My Upgrades{{/link}}.', {
-				components: {
-					link: <a href="/purchases" />
-				}
-			} )
-		);
 	}
 } );
