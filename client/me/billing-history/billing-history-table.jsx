@@ -41,11 +41,11 @@ module.exports = React.createClass( {
 	},
 
 	render: function() {
-		const emptyTableText = this.translate( 'You do not currently have any upgrades. To see what upgrades we offer visit our {{link}}Plans page{{/link}}.', {
-			components: {
-				link: <a href="/plans" />
-			}
-		} );
+		const emptyTableText = this.translate(
+			'You do not currently have any upgrades. ' +
+			'To see what upgrades we offer visit our {{link}}Plans page{{/link}}.', {
+				components: { link: <a href="/plans" /> } }
+		);
 		return (
 			<TransactionsTable
 				{ ...this.props }
