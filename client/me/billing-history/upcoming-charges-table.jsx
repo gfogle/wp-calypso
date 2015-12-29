@@ -14,7 +14,9 @@ module.exports = React.createClass( {
 	displayName: 'UpcomingChargesTable',
 
 	propTypes: {
-		sites: PropTypes.object.isRequired
+		sites: PropTypes.shape( {
+			getSite: PropTypes.func.isRequired
+		} ).isRequired
 	},
 
 	render: function() {
