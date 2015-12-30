@@ -38,8 +38,8 @@ const WebPreview = React.createClass( {
 		onClose: React.PropTypes.func,
 		// Optional loading message to display during loading
 		loadingMessage: React.PropTypes.string,
-        // The iframe's title element, used for accessibility purpose
-        iframeTitle: React.PropTypes.string
+		// The iframe's title element, used for accessibility purpose
+		iframeTitle: React.PropTypes.string
 	},
 
 	mixins: [ PureRenderMixin ],
@@ -49,7 +49,7 @@ const WebPreview = React.createClass( {
 			showExternal: true,
 			showDeviceSwitcher: true,
 			previewUrl: 'about:blank',
-            iframeTitle: 'Preview'
+			iframeTitle: 'Preview'
 		}
 	},
 
@@ -177,7 +177,7 @@ const WebPreview = React.createClass( {
 								className="web-preview__frame"
 								src={ this.state.iframeUrl }
 								onLoad={ this.setLoaded }
-                                title={ this.props.iframeTitle }
+								title={ this.props.iframeTitle }
 							/>
 						}
 					</div>
